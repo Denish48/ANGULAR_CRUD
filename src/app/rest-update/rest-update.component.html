@@ -1,0 +1,57 @@
+
+<!-- <div class="container">
+  <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    
+    <strong>Successfull!</strong>Restaurent Add Successfull.
+    <button (click)="alertclose()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</div> -->
+
+
+<div class="container" style="width: 550px">
+  <h2 appTest appRenderer>Edit Restaurent</h2>
+      <form [formGroup]="edit_res" (ngSubmit)="ON_UPDATE_COLLECTION()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Restaurent Name</label>
+          <input
+            type="text"
+            formControlName="Restaurent"
+            class="form-control"
+            placeholder="Enter Restaurent Name"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input
+            type="email"
+            formControlName="Email"
+            class="form-control"
+            placeholder="Enter Restaurent Email"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Contact No.</label>
+          <input
+            type="text"
+            formControlName="Phone"
+            class="form-control"
+            placeholder="Enter Contact Number"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"> Address</label>
+          <input
+            type="text"
+            formControlName="Address"
+            class="form-control"
+            placeholder="Enter Restaurent address"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+    </div>
+    

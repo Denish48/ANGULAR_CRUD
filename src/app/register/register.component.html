@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Sign In</h2>
+  <form class="row g-3" [formGroup]="user_sign_in_data" (ngSubmit)="GET_USER_DATA()">
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Name</label>
+      <input type="text" class="form-control" id="inputname" formControlName="Name"  />
+    </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" formControlName="Email" />
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Password</label>
+      <input type="password" class="form-control" id="inputPassword4" formControlName="Password" autocomplete="off" />
+    </div>
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">Address</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputAddress"
+        placeholder="City Name"
+        formControlName="Address"
+      />
+    </div>
+
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck" formControlName="Accept_Conditions" />
+        <label class="form-check-label" for="gridCheck">
+          Terms & Condition
+        </label>
+      </div>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+  </form>
+</div>

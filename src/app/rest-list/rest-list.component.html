@@ -1,0 +1,36 @@
+<div class="container" style="width: 1050px">
+  <h2>Restaurent List</h2>
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone No.</th>
+        <th scope="col">Email</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ele of alldata">
+        <td>{{ ele.id }}</td>
+        <td>{{ ele.Restaurent }}</td>
+        <td>{{ ele.Address }}</td>
+        <td>{{ ele.Phone }}</td>
+        <td>{{ ele.Email }}</td>
+        <td>
+          <button (click)="Delete_RES(ele.id)" class="btn btn-danger">
+            <i class="fa fa-trash" style="font-size: 20px"></i> Delete
+          </button>
+        </td>
+
+        <td>
+          <button class="btn btn-primary" (click)="updateBlog(ele.id)">
+            <i class="fa fa-edit" style="font-size: 20px"></i>Update
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
