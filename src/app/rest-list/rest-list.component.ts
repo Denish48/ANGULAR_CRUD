@@ -117,7 +117,11 @@ export class RestListComponent implements OnInit, OnDestroy {
 
   //update the value of table:
   updateBlog(id: any) {
-    this.router.navigateByUrl(`/update/${id}`);
+    // this.router.navigateByUrl(`/update/${id}`);
+    this.router.navigate([`/update/${id}`], {
+      queryParams: { page: `${id}`, search: 'Restaurent' },
+      fragment: 'load',
+    });
   }
   //when change the comepenent ng destroy works:
   ngOnDestroy(): void {
