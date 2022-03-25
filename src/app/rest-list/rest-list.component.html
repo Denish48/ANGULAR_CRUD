@@ -1,4 +1,4 @@
-<div class="container" style="width: 1050px">
+<!-- <div class="container" style="width: 1050px">
   <h2>Restaurent List</h2>
   <table class="table table-dark table-striped">
     <thead>
@@ -33,4 +33,102 @@
       </tr>
     </tbody>
   </table>
+</div>  -->
+
+<!-- mui table data  -->
+<!-- filter the table data  -->
+<div class="container">
+  <mat-form-field appearance="standard">
+    <mat-label>Search Restaurent Name</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input />
+  </mat-form-field>
+</div>
+
+<br />
+<!-- table code  -->
+<div class="containe">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox
+          (change)="$event ? masterToggle() : null"
+          [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()"
+          [aria-label]="checkboxLabel()"
+        >
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)"
+          [aria-label]="checkboxLabel(row)"
+        >
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Restaurent Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.Restaurent }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef>Phone No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.Phone }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{ element.Email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Address">
+      <th mat-header-cell *matHeaderCellDef>Address</th>
+      <td mat-cell *matCellDef="let element">{{ element.Address }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="operations">
+      <th mat-header-cell *matHeaderCellDef>Operation</th>
+      <td mat-cell *matCellDef="let element">
+        <i
+          (click)="updateBlog(element.id)"
+          class="fa fa-edit"
+          style="font-size: 20px; color: blue"
+        ></i>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      (click)="selection.toggle(row)"
+    ></tr>
+  </table>
+</div>
+<br /><br />
+<div class="container" style="width: 150px">
+  <div class="row push-right">
+    <input matInput value="Done" #action hidden />
+    <input matInput value="Delete Successully" #message hidden />
+
+    <button
+      mat-raised-button
+      color="warn"
+      (click)="DeleteData(message.value, action.value)"
+    >
+      Delete Data
+    </button>
+  </div>
 </div>
